@@ -1,16 +1,14 @@
 package main
 
 import (
-	"flag"
 	"fmt"
+
+	"github.com/mogi86/mogi-awscli/cmd"
 )
 
 func main()  {
-	var greeting string
-
-	//f := flag.String("greeting", "", "please set the greeting.")
-	flag.StringVar(&greeting, "greeting", "", "please set the greeting.")
-	flag.Parse()
-
-	fmt.Println(greeting)
+	err := cmd.Execute()
+	if err != nil {
+		fmt.Printf("cmd failed: %v", err)
+	}
 }
